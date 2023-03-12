@@ -1,4 +1,4 @@
-import { View, StyleSheet, Text, Image, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, Image, TouchableOpacity, Linking } from "react-native";
 import React, { useEffect } from "react";
 import * as Laction from 'expo-location';
 
@@ -6,7 +6,9 @@ import * as Laction from 'expo-location';
 export default function Aboutpage ({navigation, route}) {
     const aboutImage = 'https://firebasestorage.googleapis.com/v0/b/sparta-image.appspot.com/o/lecture%2FaboutImage.png?alt=media&token=13e1c4f6-b802-4975-9773-e305fc7475c4'
     
-    
+    const Link = () => {
+        Linking.openURL('https://www.instagram.com/_hyn_su_/')
+    }
     return (
         <View style={styles.fullBack}>
             <Text style={styles.mainText}>HI! 스파르타코딩 앱개발 반에 오신것을 환영합니다</Text>
@@ -14,7 +16,7 @@ export default function Aboutpage ({navigation, route}) {
                 <Image  style={styles.mainImg} source={{uri:aboutImage}} resizeMode={"cover"}></Image>
                 <Text style={styles.text1}>많은 내용을 간결하게 담으려고 노력했습니다!</Text>
                 <Text style={styles.text2}>꼭 완주하셔서 꼭 여러분의것으로 만들어 가시길 바랍니다</Text>
-                <TouchableOpacity style={styles.myBtn}><Text style={styles.BtnText}>여러분의 인스타계정</Text></TouchableOpacity>
+                <TouchableOpacity style={styles.myBtn}><Text style={styles.BtnText} onPress={Link} >여러분의 인스타계정</Text></TouchableOpacity>
             </View>
         </View>
     )
